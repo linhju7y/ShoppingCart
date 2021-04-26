@@ -23,7 +23,7 @@ const Cart = ({ cart }) => {
     setTotalItems(items);
     setTotalPrice(price);
     console.log(totalPrice);
-    console.log()
+    console.log();
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
   return (
@@ -35,9 +35,19 @@ const Cart = ({ cart }) => {
       </div>
       <div className={styles.cart__summary}>
         <h4 className={styles.summary__title}>Cart Summary</h4>
-        <div className={styles.summary__price}>
-          <span>TOTAL: ({totalItems} items)</span>
-          <span>VNĐ {totalPrice}</span>
+        <div >
+          {cart.map((carts) => {
+            return (
+              <ul>
+                <li>
+                  {carts.title} x {carts.qty}kg
+                </li>
+              </ul>
+            );
+          })}
+        </div>
+        <div>
+          <b>VNĐ {totalPrice}</b>
         </div>
         <button
           className={styles.summary__checkoutBtn}

@@ -10,7 +10,7 @@ const Navbar = ({ cart }) => {
   useEffect(() => {
     let count = 0;
     cart.forEach((item) => {
-      count += item.qty;
+      count += 1;
     });
 
     setCartCount(count);
@@ -29,7 +29,7 @@ const Navbar = ({ cart }) => {
             src="https://image.flaticon.com/icons/svg/102/102276.svg"
             alt="shopping cart"
           />
-          <div className={styles.cart__counter}>{cartCount}</div>
+          <div className={styles.cart__counter}>{Math.round(cartCount, 1)}</div>
         </div>
       </Link>
     </div>
