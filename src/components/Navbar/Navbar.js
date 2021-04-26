@@ -19,7 +19,7 @@ const Navbar = ({ cart }) => {
   return (
     <div className={styles.navbar}>
       <Link to="/">
-        <h2 className={styles.navbar__logo}>Items</h2>
+        <h2 className={styles.navbar__logo}>Fruit store</h2>
       </Link>
       <Link to="/cart">
         <div className={styles.navbar__cart}>
@@ -38,7 +38,7 @@ const Navbar = ({ cart }) => {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.shop.cart,
+    cart: state.shop,
   };
 };
 

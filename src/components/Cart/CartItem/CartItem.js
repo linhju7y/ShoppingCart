@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {
   adjustItemQty,
   removeFromCart,
-} from "../../../redux/Shopping/shopping-actions";
+} from "../../../components/shopSlice"
 
 const CartItem = ({ item, adjustQty, removeFromCart }) => {
   const [input, setInput] = useState(item.qty);
@@ -13,6 +13,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
   const onChangeHandler = (e) => {
     setInput(e.target.value);
     adjustQty(item.id, e.target.value);
+    console.log(input)
   };
 
   return (
@@ -36,7 +37,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
               id="qty"
               name="qty"
               value={input}
-              step="0.1"
+              step='0.1'
               onChange={onChangeHandler}
             />
         </div>
@@ -56,7 +57,7 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    adjustQty: (id, value) => dispatch(adjustItemQty(id, value)),
+    adjustQty: (id, qty) => dispatch(adjustItemQty(id, qty)),
     removeFromCart: (id) => dispatch(removeFromCart(id)),
   };
 };

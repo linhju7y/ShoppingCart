@@ -23,6 +23,7 @@ const Cart = ({ cart }) => {
     setTotalItems(items);
     setTotalPrice(price);
     console.log(totalPrice);
+    console.log()
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
   return (
@@ -57,7 +58,7 @@ const Cart = ({ cart }) => {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.shop.cart,
+    cart: state.shop,
   };
 };
 
