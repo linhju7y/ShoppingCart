@@ -19,6 +19,7 @@ import {
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import moment from "moment";
 import PaymentForm from "./Order/PaymentForm";
+import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: { width: 1000 },
@@ -170,6 +171,8 @@ function OrderModal(props) {
 
   const handleAllDone = () => {
     window.location.reload();
+    // const history = useHistory();
+    // history.push("/");
   };
 
   return (
@@ -236,7 +239,7 @@ function OrderModal(props) {
                             {" "}
                             <ListItemText
                               primary="TOTAL PAYMENT"
-                              secondary={<h1>${totalPrice}</h1>}
+                              secondary={<h1>VNĐ{totalPrice}</h1>}
                             />
                           </h2>
                         </ListItem>
@@ -246,15 +249,24 @@ function OrderModal(props) {
                   </Grid>
                 </div>
               </form>
-
-              <Button
+              <Link to="/">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                  onClick={handleAllDone}
+                >
+                  All Done
+                </Button>
+              </Link>
+              {/* <Button
                 variant="contained"
                 color="primary"
                 className={classes.button}
                 onClick={handleAllDone}
               >
                 All Done
-              </Button>
+              </Button> */}
             </div>
           ) : (
             <div>
